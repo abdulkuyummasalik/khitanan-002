@@ -14,7 +14,6 @@
         'sections/section5.html',
         'sections/section6.html',
         'sections/section7.html',
-        'sections/section8.html',
     ];
 
     // Buat wrapper #app tepat sebelum tag <script> ini

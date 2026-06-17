@@ -1,67 +1,212 @@
 /* ==============================================
-   SECTION 7 — Gallery/Album
-   Islamic Theme Green
+   SECTION 7 — Footer & Credit
+   Islamic Green Theme
    ============================================== */
 
 #section-7 {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 0;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
-#gallery-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-bottom: 20px;
-}
-
-.gallery-item {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1;
-    border-radius: 8px;
-    overflow: hidden;
-    background: linear-gradient(135deg, rgba(27, 94, 32, 0.06) 0%, rgba(0, 105, 92, 0.06) 100%);
-    border: 1px solid var(--border-light);
-    transition: all 0.3s ease;
+/* Footer Inner Padding */
+.footer-inner {
+    padding: 50px 32px 60px !important;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+    gap: 22px;
 }
 
-.gallery-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(27, 94, 32, 0.12);
-    border-color: var(--primary-light);
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.gallery-item-placeholder {
-    width: 60%;
-    height: 60%;
-    background: rgba(27, 94, 32, 0.1);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Credit Text */
+.credit-text {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 12px;
     color: var(--text-soft);
-    font-size: 28px;
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
-@media (max-width: 480px) {
-    #gallery-list {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+/* Credit Header (Logo + Brand) */
+.credit-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, rgba(27, 94, 32, 0.05) 0%, rgba(0, 105, 92, 0.05) 100%);
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+}
+
+.credit-logo {
+    width: 55px;
+    height: auto;
+    max-height: 55px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(27, 94, 32, 0.15));
+    transition: transform 0.3s ease;
+}
+
+.credit-logo:hover {
+    transform: scale(1.05);
+}
+
+/* Credit Brand Inline */
+.credit-brand-inline {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.brand-km {
+    color: var(--primary);
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    line-height: 1;
+}
+
+.brand-devworks {
+    color: var(--secondary);
+    font-family: 'Quicksand', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+/* Credit Tagline */
+.credit-tagline {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 12px;
+    color: var(--text-soft);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    margin: 0;
+}
+
+/* WhatsApp Button */
+.wa-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 28px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 14px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+    transition: all 0.3s ease;
+}
+
+.wa-button:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+}
+
+.wa-button:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.wa-icon {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2.5;
+}
+
+/* Animations */
+.anim-fade {
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.anim-fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.anim-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    animation: scaleIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
     }
 }
 
-</content>
-</invoke>
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-inner {
+        padding: 45px 24px 55px !important;
+        gap: 20px;
+    }
+
+    .credit-text {
+        font-size: 11px;
+    }
+
+    .credit-header {
+        gap: 12px;
+        padding: 14px 20px;
+        border-radius: 14px;
+    }
+
+    .credit-logo {
+        width: 48px;
+        max-height: 48px;
+    }
+
+    .brand-km {
+        font-size: 22px;
+    }
+
+    .brand-devworks {
+        font-size: 11px;
+        letter-spacing: 2.5px;
+    }
+
+    .credit-tagline {
+        font-size: 11px;
+    }
+
+    .wa-button {
+        padding: 12px 24px;
+        font-size: 13px;
+        border-radius: 12px;
+    }
+
+    .wa-icon {
+        width: 18px;
+        height: 18px;
+    }
+}

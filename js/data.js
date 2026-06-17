@@ -45,22 +45,6 @@ const INVITATION_DATA = {
       number: '9876543210',
       display: '9876 5432 10',
       owner: 'Bapak Ahmad Ridho'
-    },
-    {
-      name: 'GoPay / OVO',
-      type: 'phone',
-      label: 'No. Handphone',
-      number: '081234567890',
-      display: '0812 3456 7890',
-      owner: 'Ahmad Ridho'
-    },
-    {
-      name: 'Dana',
-      type: 'phone',
-      label: 'No. Handphone',
-      number: '085678901234',
-      display: '0856 7890 1234',
-      owner: 'Ahmad Ridho'
     }
   ],
 
@@ -93,6 +77,14 @@ const INVITATION_DATA = {
       message: 'Sehat selalu untuk Abidzar dan keluarga. Semoga menjadi pribadi yang bermanfaat bagi agama dan negeri. 💚'
     }
   ],
+
+  /* ────────────────────────────────────────────
+     FAMILY INFORMATION — Data Keluarga
+     ──────────────────────────────────────────── */
+  family: {
+    name: 'Keluarga Besar',
+    location: 'Jakarta'
+  },
 
   /* ────────────────────────────────────────────
      TEXT CONTENT — Teks Statis di Berbagai Bagian

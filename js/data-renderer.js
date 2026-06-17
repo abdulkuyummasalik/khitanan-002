@@ -22,32 +22,45 @@ function renderSection3() {
   const dt = getEventDatetime();
   
   // Update waktu card
-  const timeMainLine = document.querySelector('[id="section-3"] .info-card:nth-child(4) .main-line') ||
-                       document.querySelector('section:nth-child(3) .info-card:nth-child(1) .main-line');
+  const timeMainLine = document.getElementById('event-date');
   if (timeMainLine) {
-    timeMainLine.textContent = dt.time_display;
+    timeMainLine.textContent = formatDateIndonesian(event.date);
+  }
+  
+  // Update waktu jam
+  const timeJamLine = document.querySelector('#app .main-line');
+  if (timeJamLine) {
+    timeJamLine.textContent = dt.time_display;
   }
   
   // Update tempat card
-  const locAddrLine = document.querySelector('[id="section-3"] .addr-line') ||
-                      document.querySelector('section:nth-child(3) .addr-line');
+  const locNameLine = document.getElementById('location-name');
+  if (locNameLine) {
+    locNameLine.textContent = event.location.name;
+  }
+  
+  const locAddrLine = document.querySelector('#app .addr-line');
   if (locAddrLine) {
     locAddrLine.textContent = event.location.address;
   }
   
   // Update maps embed
-  const mapIframe = document.querySelector('[id="section-3"] .map-embed iframe') ||
-                    document.querySelector('section:nth-child(3) .map-embed iframe');
+  const mapIframe = document.querySelector('#app .map-embed iframe');
   if (mapIframe) {
     const query = encodeURIComponent(event.location.maps_query);
     mapIframe.src = `https://www.google.com/maps?q=${query}&output=embed`;
   }
   
   // Update catatan
-  const noteLine = document.querySelector('[id="section-3"] .note-line') ||
-                   document.querySelector('section:nth-child(3) .note-line');
+  const noteLine = document.querySelector('#app .note-line');
   if (noteLine) {
     noteLine.innerHTML = event.location.note;
+  }
+  
+  // Update maps button
+  const mapsBtn = document.querySelector('#app .maps-btn');
+  if (mapsBtn) {
+    mapsBtn.onclick = () => window.open(`https://maps.google.com/?q=${encodeURIComponent(event.location.maps_query)}`, '_blank');
   }
 }
 
@@ -64,12 +77,87 @@ function renderSection5() {
   if (namaInput) namaInput.placeholder = text.ucapan_placeholder_name;
   if (pesanInput) pesanInput.placeholder = text.ucapan_placeholder_msg;
   
-  // TIDAK render hardcoded data - tunggu Firebase
+  // Render initial wishes from data.js
   const ucapanList = document.getElementById('ucapan-list');
   if (ucapanList) {
     ucapanList.innerHTML = '';
-    // Kosong dulu, data akan di-load dari Firebase oleh rsvp.js
+    
+    const wishes = INVITATION_DATA.wishes;
+    const displayWishes = wishes.slice(0, 5);
+    
+    displayWishes.forEach((wish, index) => {
+      const item = document.createElement('div');
+      item.className = 'wish-item anim-left anim-in';
+      item.style.animationDelay = `${index * 100}ms`;
+      
+      item.innerHTML = `
+        <p class="wish-name">
+          <span class="wish-name-icon">✓</span>
+          ${esc(wish.name)}
+          <span class="wish-status hadir">Hadir</span>
+        </p>
+        <p class="wish-message">${esc(wish.message)}</p>
+      `;
+      ucapanList.appendChild(item);
+    });
+    
+    // Jika ada lebih dari 5 ucapan, tambahkan tombol "Lihat Semua"
+    if (wishes.length > 5) {
+      const seeMoreBtn = document.createElement('button');
+      seeMoreBtn.className = 'see-more-btn';
+      seeMoreBtn.textContent = `Lihat Semua (${wishes.length})`;
+      seeMoreBtn.onclick = () => openInitialModal(wishes);
+      ucapanList.appendChild(seeMoreBtn);
+    }
   }
+}
+
+function openInitialModal(wishes) {
+    // Buat modal
+    const modal = document.createElement('div');
+    modal.className = 'modal-overlay';
+    modal.onclick = (e) => {
+        if (e.target === modal) closeModal();
+    };
+    
+    const modalContent = document.createElement('div');
+    modalContent.className = 'modal-content';
+    
+    const modalHeader = document.createElement('div');
+    modalHeader.className = 'modal-header';
+    modalHeader.innerHTML = `
+        <h3>Semua Ucapan</h3>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+    `;
+    
+    const modalBody = document.createElement('div');
+    modalBody.className = 'modal-body';
+    
+    wishes.forEach((wish, index) => {
+        const item = document.createElement('div');
+        item.className = 'wish-item';
+        item.style.animationDelay = `${index * 50}ms`;
+        
+        item.innerHTML = `
+            <p class="wish-name">
+                <span class="wish-name-icon">✓</span>
+                ${esc(wish.name)}
+                <span class="wish-status hadir">Hadir</span>
+            </p>
+            <p class="wish-message">${esc(wish.message)}</p>
+        `;
+        modalBody.appendChild(item);
+    });
+    
+    modalContent.appendChild(modalHeader);
+    modalContent.appendChild(modalBody);
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
+    
+    // Animasi masuk
+    setTimeout(() => {
+        modal.classList.add('show');
+    }, 10);
 }
 
 /* ────────────────────────────────────────────

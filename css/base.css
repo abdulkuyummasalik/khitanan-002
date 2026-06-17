@@ -3,7 +3,7 @@
    Variables, reset, body, card, decorations
    ============================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&family=Lora:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&family=Lora:wght@400;500;600&display=swap');
 
 :root {
     /* Islamic Green Palette */
@@ -59,9 +59,9 @@ html, body {
 body {
     background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 50%, #f1f8e9 100%);
     min-height: 100vh;
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     color: var(--text-dark);
-    font-weight: 400;
+    font-weight: 500;
     position: relative;
     z-index: 0;
     
@@ -100,8 +100,8 @@ body::before {
     border-radius: 16px;
     box-shadow: var(--shadow-lg);
     overflow: hidden;
-    margin-bottom: 12px;
-    margin-top: 12px;
+    margin-bottom: 20px;
+    margin-top: 20px;
     backdrop-filter: blur(4px);
     border: 2px solid var(--border-light);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -173,7 +173,7 @@ body::before {
 /* Top decoration - nempel rapat ke atas */
 .floral.top {
     top: 0;
-    height: 70px;
+    height: 110px;
     background-image: url('../assets/top.png');
     background-size: 100% 100%;
     background-position: top center;
@@ -182,7 +182,7 @@ body::before {
 /* Bottom decoration - nempel rapat ke bawah */
 .floral.bottom {
     bottom: 0;
-    height: 70px;
+    height: 110px;
     background-image: url('../assets/bottom.png');
     background-size: 100% 100%;
     background-position: bottom center;
@@ -192,7 +192,7 @@ body::before {
 .section-inner {
     position: relative;
     z-index: 3;
-    padding: 35px 28px 35px;
+    padding: 75px 32px 75px;
     text-align: center;
 }
 

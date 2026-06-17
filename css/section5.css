@@ -24,7 +24,7 @@
 .ucapan-header p {
     font-size: 13px;
     color: var(--text-soft);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 /* Form Input */
@@ -50,24 +50,28 @@
     font-weight: 700;
     color: var(--text-soft);
     letter-spacing: 0.2px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .ucapan-form input,
-.ucapan-form textarea {
+.ucapan-form textarea,
+.ucapan-form select {
     background: white;
     border: 1.5px solid var(--border-light);
     padding: 12px 14px;
     font-size: 13px;
     border-radius: 10px;
     transition: all 0.3s ease;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    width: 100%;
 }
 
 .ucapan-form input:focus,
-.ucapan-form textarea:focus {
+.ucapan-form textarea:focus,
+.ucapan-form select:focus {
     border-color: var(--accent);
     box-shadow: 0 0 0 3px rgba(27, 94, 32, 0.08);
+    outline: none;
 }
 
 .ucapan-form textarea {
@@ -87,7 +91,7 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     letter-spacing: 0.3px;
     margin-top: 4px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .ucapan-btn:hover {
@@ -135,7 +139,7 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     justify-content: space-between;
 }
 
@@ -184,7 +188,7 @@
     color: var(--text-soft);
     line-height: 1.5;
     font-weight: 400;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 @media (max-width: 480px) {
@@ -199,6 +203,117 @@
     .wish-message {
         font-size: 12px;
     }
+}
+
+/* See More Button */
+.see-more-btn {
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 16px;
+    background: linear-gradient(135deg, rgba(27, 94, 32, 0.08) 0%, rgba(0, 105, 92, 0.08) 100%);
+    border: 1.5px solid var(--border-light);
+    border-radius: 10px;
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Quicksand', sans-serif;
+}
+
+.see-more-btn:hover {
+    background: linear-gradient(135deg, rgba(27, 94, 32, 0.12) 0%, rgba(0, 105, 92, 0.12) 100%);
+    border-color: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(27, 94, 32, 0.15);
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 20px;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 400px;
+    max-height: 80vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9) translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-overlay.show .modal-content {
+    transform: scale(1) translateY(0);
+}
+
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 100%);
+}
+
+.modal-header h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary);
+    font-size: 20px;
+    margin: 0;
+}
+
+.modal-close {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: rgba(27, 94, 32, 0.1);
+    border-radius: 50%;
+    font-size: 24px;
+    color: var(--primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    background: var(--primary);
+    color: white;
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal-body .wish-item {
+    animation: none !important;
 }
 
 @keyframes slideInUp {
