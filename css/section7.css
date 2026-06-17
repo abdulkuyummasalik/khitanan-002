@@ -1,0 +1,67 @@
+/* ==============================================
+   SECTION 7 — Gallery/Album
+   Islamic Theme Green
+   ============================================== */
+
+#section-7 {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#gallery-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(27, 94, 32, 0.06) 0%, rgba(0, 105, 92, 0.06) 100%);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(27, 94, 32, 0.12);
+    border-color: var(--primary-light);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.gallery-item-placeholder {
+    width: 60%;
+    height: 60%;
+    background: rgba(27, 94, 32, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-soft);
+    font-size: 28px;
+}
+
+@media (max-width: 480px) {
+    #gallery-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+</content>
+</invoke>

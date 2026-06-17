@@ -1,0 +1,37 @@
+<!-- SECTION 5 — Ucapan & Doa -->
+<div class="card anim-card">
+    <div class="floral top"></div>
+    <div class="card-bg"></div>
+    <div class="card-border"></div>
+
+    <div class="section-inner">
+        <h2 class="anim-fade-in-up" style="margin-bottom: 12px;">Ucapan & Doa</h2>
+        <p class="anim-fade" style="margin-bottom: 24px; font-size: 14px; color: var(--text-soft);">Berikan ucapan terbaik Anda untuk kami</p>
+
+        <form class="ucapan-form anim-scale-in" onsubmit="kirimUcapan(); return false;">
+            <div class="form-group">
+                <label class="form-label">Nama</label>
+                <input type="text" id="nama-input" placeholder="Nama Anda" class="form-input">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Ucapan & Doa</label>
+                <textarea id="pesan-input" placeholder="Tuliskan ucapan dan doa terbaik Anda..." class="form-textarea"></textarea>
+            </div>
+            <button type="button" class="ucapan-btn" onclick="kirimUcapan()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px; display: inline;">
+                    <polyline points="22 2 11 13"></polyline>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+                Kirim Ucapan
+            </button>
+        </form>
+
+        <div class="wishes-list anim-fade-in-up" style="margin-top: 24px;">
+            <div id="ucapan-list">
+                <!-- Wishes akan di-render oleh data-renderer.js -->
+            </div>
+        </div>
+    </div>
+
+    <div class="floral bottom"></div>
+</div>

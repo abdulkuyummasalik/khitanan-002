@@ -1,0 +1,132 @@
+/* ==============================================
+   SECTION 8 — Closing / Penutup
+   Islamic Theme
+   ============================================== */
+
+#section-8 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.closing-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.closing-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: white;
+    animation: float 3s ease-in-out infinite;
+    font-weight: 700;
+}
+
+.closing-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.closing-message {
+    font-size: 14px;
+    color: var(--text-soft);
+    line-height: 1.8;
+    margin-bottom: 24px;
+    max-width: 300px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.closing-closing-text {
+    font-family: 'Lora', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--secondary);
+    margin: 8px 0 16px;
+}
+
+.closing-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+}
+
+.closing-btn {
+    padding: 13px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.3px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.closing-btn-primary {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 8px 24px rgba(27, 94, 32, 0.25);
+}
+
+.closing-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(27, 94, 32, 0.35);
+}
+
+.closing-btn-secondary {
+    background: rgba(27, 94, 32, 0.08);
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+}
+
+.closing-btn-secondary:hover {
+    background: rgba(27, 94, 32, 0.12);
+}
+
+.closing-footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-light);
+    font-size: 11px;
+    color: var(--text-lighter);
+    font-family: 'Poppins', sans-serif;
+}
+
+@media (max-width: 480px) {
+    .closing-title {
+        font-size: 32px;
+    }
+
+    .closing-closing-text {
+        font-size: 24px;
+    }
+
+    .closing-message {
+        font-size: 13px;
+    }
+
+    .closing-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 28px;
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}

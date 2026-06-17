@@ -1,0 +1,181 @@
+/* ==============================================
+   SECTION 6 — Hadiah & Payment
+   Islamic Theme Green
+   ============================================== */
+
+#section-6 {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.hadiah-header {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.hadiah-header h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+    font-family: 'Playfair Display', serif;
+    color: var(--primary);
+}
+
+.hadiah-header p {
+    font-size: 13px;
+    color: var(--text-soft);
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+}
+
+.payment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.payment-item {
+    padding: 16px;
+    background: linear-gradient(135deg, rgba(27, 94, 32, 0.06) 0%, rgba(0, 105, 92, 0.04) 100%);
+    border-radius: 12px;
+    border: 1.5px solid var(--border-light);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.payment-item:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-light);
+    box-shadow: 0 8px 24px rgba(27, 94, 32, 0.12);
+}
+
+.payment-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.payment-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.payment-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-dark);
+    font-family: 'Poppins', sans-serif;
+}
+
+.payment-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.payment-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-soft);
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+}
+
+.payment-number-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(241, 248, 233, 0.8);
+    border-radius: 8px;
+    padding: 6px 8px;
+    position: relative;
+}
+
+.payment-number {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary);
+    font-family: 'Poppins', monospace;
+    flex: 1;
+    text-align: left;
+}
+
+.payment-owner {
+    font-size: 12px;
+    color: var(--text-soft);
+    line-height: 1.4;
+    font-family: 'Poppins', sans-serif;
+}
+
+.copy-btn {
+    width: 28px;
+    height: 28px;
+    background: transparent;
+    color: var(--primary);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    padding: 0;
+}
+
+.copy-btn:hover {
+    background: rgba(27, 94, 32, 0.1);
+    transform: scale(1.1);
+}
+
+.copy-btn.copied {
+    background: var(--success);
+    color: white;
+}
+
+.note-box {
+    margin-top: 8px;
+    padding: 10px 12px;
+    background: rgba(27, 94, 32, 0.06);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    font-size: 11px;
+    color: var(--text-soft);
+    line-height: 1.4;
+    font-family: 'Poppins', sans-serif;
+}
+
+@media (max-width: 480px) {
+    .hadiah-header h2 {
+        font-size: 24px;
+    }
+
+    .payment-item {
+        padding: 12px;
+    }
+
+    .payment-number-wrapper {
+        flex-direction: row;
+        gap: 8px;
+    }
+
+    .payment-number {
+        font-size: 12px;
+        text-align: left;
+    }
+
+    .payment-name {
+        font-size: 13px;
+    }
+}
