@@ -111,26 +111,31 @@ function addToCalendar() {
 }
 
 /* ──────────────────────────────────────────────
-   KIRIM UCAPAN
+   KIRIM UCAPAN & RSVP KE FIREBASE
    ────────────────────────────────────────────── */
-function kirimUcapan() {
+async function kirimUcapanDanRSVP() {
     const nama  = document.getElementById('nama-input').value.trim();
     const pesan = document.getElementById('pesan-input').value.trim();
+    const status = document.getElementById('status-input').value.trim();
 
-    if (!nama || !pesan) {
-        showToast(INVITATION_DATA.text.ucapan_error);
+    if (!nama || !pesan || !status) {
+        showToast('Mohon isi semua field (nama, ucapan, dan status)');
         return;
     }
 
-    const item = document.createElement('div');
-    item.className = 'ucapan-item';
-    item.innerHTML = `<p class="u-name">${esc(nama)}</p><p class="u-msg">${esc(pesan)}</p>`;
-    document.getElementById('ucapan-list').prepend(item);
-    if (window.animateNewUcapan) window.animateNewUcapan(item);
-
-    document.getElementById('nama-input').value  = '';
-    document.getElementById('pesan-input').value = '';
-    showToast(INVITATION_DATA.text.ucapan_success);
+    // Kirim ke Firebase via rsvp.js
+    if (window.submitRSVP) {
+        const success = await window.submitRSVP(status, nama, pesan);
+        if (success) {
+            // Clear form
+            document.getElementById('nama-input').value  = '';
+            document.getElementById('pesan-input').value = '';
+            document.getElementById('status-input').value = '';
+            showToast('✅ Ucapan & RSVP berhasil dikirim!');
+        }
+    } else {
+        showToast('❌ Firebase belum siap');
+    }
 }
 
 /* ──────────────────────────────────────────────

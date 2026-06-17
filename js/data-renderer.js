@@ -52,7 +52,7 @@ function renderSection3() {
 }
 
 /* ────────────────────────────────────────────
-   RENDER SECTION 5 — UCAPAN & DOA
+   RENDER SECTION 5 — UCAPAN & DOA (FIREBASE ONLY)
    ──────────────────────────────────────────── */
 function renderSection5() {
   const text = INVITATION_DATA.text;
@@ -64,26 +64,11 @@ function renderSection5() {
   if (namaInput) namaInput.placeholder = text.ucapan_placeholder_name;
   if (pesanInput) pesanInput.placeholder = text.ucapan_placeholder_msg;
   
-  // Update button
-  const kirimBtn = document.querySelector('.ucapan-form button');
-  if (kirimBtn) kirimBtn.textContent = text.ucapan_button;
-  
-  // Clear existing ucapan dan render dari data
+  // TIDAK render hardcoded data - tunggu Firebase
   const ucapanList = document.getElementById('ucapan-list');
   if (ucapanList) {
     ucapanList.innerHTML = '';
-    
-    const wishes = getAllWishes();
-    wishes.forEach((wish, idx) => {
-      const item = document.createElement('div');
-      item.className = 'wish-item anim-left';
-      item.style.animationDelay = `${300 + idx * 100}ms`;
-      item.innerHTML = `
-        <p class="wish-name"><span class="wish-name-icon">✓</span>${esc(wish.name)}</p>
-        <p class="wish-message">${esc(wish.message)}</p>
-      `;
-      ucapanList.appendChild(item);
-    });
+    // Kosong dulu, data akan di-load dari Firebase oleh rsvp.js
   }
 }
 

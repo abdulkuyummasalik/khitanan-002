@@ -136,6 +136,7 @@
     align-items: center;
     gap: 6px;
     font-family: 'Poppins', sans-serif;
+    justify-content: space-between;
 }
 
 .wish-name-icon {
@@ -150,6 +151,32 @@
     color: white;
     flex-shrink: 0;
     font-weight: 700;
+}
+
+.wish-status {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    flex-shrink: 0;
+}
+
+.wish-status.hadir {
+    background: #c8e6c9;
+    color: #1b5e20;
+}
+
+.wish-status.belum-pasti {
+    background: #ffe0b2;
+    color: #f57c00;
+}
+
+.wish-status.tidak-hadir {
+    background: #f0f4c3;
+    color: #827717;
 }
 
 .wish-message {
